@@ -1,5 +1,6 @@
 package com.tests;
 
+import com.appModules.CalculateMortgagePayments;
 import com.pageObjects.MortgagePaymentCalculator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -27,8 +28,9 @@ public class MortgageCalcsTest {
 
     @Test
     public void mortagePaymentCalculator30YearFixed(WebDriver driver) {
-        MortgagePaymentCalculator mortgagePaymentCalculator = new MortgagePaymentCalculator(driver);
-        mortgagePaymentCalculator.testMortgagePaymentCalculator(300000.00, 4.5, 400000, 2500, 1500, 0.55);
+        System.out.println("Before Test");
+        CalculateMortgagePayments.calculatePayment(driver,300000.00, 4.5, 400000, 2500, 1500, 0.55);
+        System.out.println("After Test");
     }
 
     @AfterTest

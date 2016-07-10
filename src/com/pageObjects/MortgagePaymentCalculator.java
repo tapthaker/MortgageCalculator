@@ -70,11 +70,4 @@ public class MortgagePaymentCalculator {
 
     }
 
-    public void testMortgagePaymentCalculator(double loanAmount, double interestRate, double homeValue, double annualTaxes, double annualInsurance, double pmi) {
-
-        loadMortgagePaymentCalculatorPage();
-        clearInputFields();
-        inputInformation(loanAmount, interestRate, homeValue,annualTaxes,annualInsurance,pmi);
-
-    }
 }
