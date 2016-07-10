@@ -64,7 +64,6 @@ public class MortgagePaymentCalculator {
     }
 
     public void calculate(){
-
         calculateButton.click();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
