@@ -78,4 +78,19 @@ public class MortgagePaymentCalculatorPage {
 
     }
 
+    public String getMonthlyPrincipalPlusInterest() {
+        return driver.findElement(By.xpath("//*[@id=\"analysisDiv\"]/table/tbody/tr[1]/td[2]")).getText();
+    }
+
+    public String getRealEstateTaxes() {
+        return driver.findElement(By.xpath("//*[@id=\"analysisDiv\"]/table/tbody/tr[2]/td[2]")).getText();
+    }
+
+    public String getMonthlyInsurance() {
+        return driver.findElement(By.xpath("//*[@id=\"analysisDiv\"]/table/tbody/tr[3]/td[2]")).getText();
+    }
+
+    public String getTotalMonthlyPayments() {
+        return driver.findElement(By.xpath("//*[@id=\"analysisDiv\"]/table/tbody/tr[4]/td[2]")).getText();
+    }
 }
