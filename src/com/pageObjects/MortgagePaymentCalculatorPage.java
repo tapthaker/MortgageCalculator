@@ -75,11 +75,6 @@ public class MortgagePaymentCalculatorPage {
         inputInformation(inputLoanAmount, inputInterestRate, inputHomeValue, inputAnnualTaxes, inputAnnualInsurance, inputPmi);
         calculateButton.click();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
     }
 
