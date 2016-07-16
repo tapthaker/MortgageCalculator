@@ -8,27 +8,32 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by amitsingh on 20/06/16.
- */
-public class MortgagePaymentCalculator {
+public class MortgagePaymentCalculatorPage {
 
     private WebDriver driver;
+    private WebElement amount;
+    private WebElement interest;
+    private WebElement homeValue;
+    private WebElement propertyTaxes;
+    private WebElement annualInsurance;
+    private WebElement pmi;
+    private WebElement calculateButton;
 
-    public MortgagePaymentCalculator(WebDriver driver) {
+    public MortgagePaymentCalculatorPage(final WebDriver driver) {
 
         this.driver = driver;
+
     }
 
-    //Locating all elements on the page
-
-    private WebElement amount = driver.findElement(By.name("Amount"));
-    private WebElement interest = driver.findElement(By.name("Interest"));
-    private WebElement homeValue = driver.findElement(By.name("HomeValue"));
-    private WebElement propertyTaxes = driver.findElement(By.name("PropertyTaxes"));
-    private WebElement annualInsurance = driver.findElement(By.name("Insurance"));
-    private WebElement pmi = driver.findElement(By.name("PMI"));
-    private WebElement calculateButton = driver.findElement(By.name("calculate"));
+    public void locateElements() {
+        amount = driver.findElement(By.name("Amount"));
+        interest = driver.findElement(By.name("Interest"));
+        homeValue = driver.findElement(By.name("HomeValue"));
+        propertyTaxes = driver.findElement(By.name("PropertyTaxes"));
+        annualInsurance = driver.findElement(By.name("Insurance"));
+        pmi = driver.findElement(By.name("PMI"));
+        calculateButton = driver.findElement(By.name("calculate"));
+    }
 
     public void loadMortgagePaymentCalculatorPage() {
 
@@ -63,9 +68,18 @@ public class MortgagePaymentCalculator {
 
     }
 
-    public void calculate(){
+    public void calculate(double inputLoanAmount, double inputInterestRate, double inputHomeValue, double inputAnnualTaxes, double inputAnnualInsurance, double inputPmi) {
+        loadMortgagePaymentCalculatorPage();
+        locateElements();
+        clearInputFields();
+        inputInformation(inputLoanAmount, inputInterestRate, inputHomeValue, inputAnnualTaxes, inputAnnualInsurance, inputPmi);
         calculateButton.click();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
