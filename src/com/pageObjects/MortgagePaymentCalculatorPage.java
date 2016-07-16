@@ -76,7 +76,7 @@ public class MortgagePaymentCalculatorPage {
         calculateButton.click();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
